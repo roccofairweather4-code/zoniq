@@ -1,298 +1,509 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
-@keyframes startAnimation {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-* {
-    font-family: 'Roboto';
-}
+    <title>jace's priv proxy</title>
 
-body {
-    background: rgb(22, 22, 22);
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    min-height: 100vh;
-    animation: startAnimation ease-in 0.8s;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 
-.bar {
-    background-color: #272727;
-    height: 50px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-}
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
 
-.gamewindow {
-    position: fixed;
-    top: 50px;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: none;
-    background: none;
-}
+        @keyframes startAnimation {
+            0% {
+                opacity: 0;
+            }
 
-.page {
-    background-color: #272727;
-    height: 200px;
-    width: 600px;
-    top: 0;
-    left: 0;
-    right: 0;
-}
+            100% {
+                opacity: 1;
+            }
+        }
 
-.bottom {
-    background-color: #272727;
-    margin-top: auto;
-    height: 50px;
-}
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #000;
+            color: white;
+            overflow: hidden;
+            animation: startAnimation 0.8s ease-in;
+        }
 
-.gamebutton {
-    margin-top: 1%;
-    font-size: large;
-}
+        /* Particle background */
+        #particles {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: #000;
+        }
 
-.text {
-    color: #FFF;
-    font-size: 25px;
-    margin-top: 1%;
-}
+        /* Top navigation */
+        .bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
 
-.textbottom {
-    color: #FFF;
-    font-size: 15px;
-    margin-top: 0.5%;
-    margin-right: 1%;
-}
+            height: 60px;
 
-.linkbottom {
-    color: rgb(116, 192, 255);
-    font-size: 14px;
-    margin-top: 0.5%;
-    margin-right: 0.2%;
-}
+            background: rgba(0, 0, 0, 0.55);
 
-.quick {
-    font-size: medium;
-}
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-.setting {
-    color: white;
-    display: none;
-    font-size: 14px;
-    position: fixed;
-    top: 20px;
-}
+            padding: 0 25px;
 
-.title_settings {
-    font-size: 20px;
-    right: 105px;
-    margin-top: 3%;
-}
+            z-index: 10;
+        }
 
-.settitle {
-    font-size: 18px;
-    right: 100px;
-    margin-top: 4%;
-}
+        .logo {
+            color: #74c0ff;
+            font-size: 24px;
+            font-weight: 500;
 
-.main_title {
-    font-size: 35px;
-    padding: 8px;
-    padding-left: 8px;
-    color: rgba(255, 255, 255, 0.842);
-}
+            border: 2px solid #74c0ff;
+            border-radius: 50%;
 
-.button {
-    color: white;
-    font-size: 16px;
-    position: fixed;
-    top: 20px;
-    transition-duration: 0.4s;
-}
+            width: 40px;
+            height: 40px;
 
-.button:hover {
-    color: grey;
-}
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-.games {
-    right: 30px;
-}
+            text-decoration: none;
 
-.ytlink {
-    right: 100px;
-    cursor: pointer;
-}
+            transition: 0.3s;
+        }
 
-.closegame {
-    right: 30px;
-    cursor: pointer;
-    display: none;
-}
+        .logo:hover {
+            color: white;
+            border-color: white;
+            transform: scale(1.05);
+        }
 
-.fullscreengame {
-    right: 130px;
-    cursor: pointer;
-    display: none;
-}
+        .nav {
+            display: flex;
+            gap: 38px;
+        }
 
-.ytlink:hover {
-    color: grey;
-}
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
 
-.tabconfig {
-    cursor: pointer;
-    right: 180px;
-}
+        .nav a:hover {
+            color: #74c0ff;
+        }
 
-.tabconfig:hover {
-    color: grey;
-}
+        /* Main content */
+        .container {
+            width: min(1000px, 90%);
+            margin: 0 auto;
 
-.updates_btn {
-    cursor: pointer;
-    right: 270px;
-}
+            padding-top: 190px;
 
-.updates_btn:hover {
-    color: grey;
-}
+            text-align: center;
+        }
 
-a:hover {
-    color: grey;
-}
+        .title {
+            margin: 0 0 35px;
 
-a {
-    color: white;
-    transition-duration: 0.4s;
-    text-decoration: none;
-}
+            font-size: clamp(55px, 6vw, 90px);
+            font-weight: 400;
 
-.title {
-    font-size: 90px;
-    margin-top: 13%;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.842);
-}
+            color: #74c0ff;
 
-.games_title {
-    font-size: 90px;
-    margin-top: 5%;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.842);
-}
+            text-shadow:
+                0 0 8px rgba(116, 192, 255, 0.25);
+        }
 
-form input {
-    background: none;
-    padding: 0px 20px;
-    height: 50px;
-    color: var(--text-color);
-    outline: none;
-    width: 400px;
-    margin-top: 10px;
-    border-radius: 50px;
-    color: #FFF;
-    border: 5px solid  rgba(255, 255, 255, 0.363);
-    transition-duration: 1s;
-}
+        /* Search */
+        .search-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
 
-form input:focus {
-    border-color: rgba(255, 255, 255, 0.712);
-}
+        .search {
+            width: 100%;
+            max-width: 1000px;
 
-.settings {
-    background-color: #272727;
-    height: 50px;
-    position: fixed;
-    right: 100px;
-    width: 350px;
-    height: 200px;
-    display: none;
-}
+            height: 48px;
 
-.updates {
-    background-color: #272727;
-    height: 50px;
-    position: fixed;
-    right: 455px;
-    width: 350px;
-    height: 200px;
-    display: none;
-}  
+            padding: 0 20px;
 
-.updatetitle {
-    color: #FFF;
-    text-align: center;
-}
+            background: rgba(0, 0, 0, 0.45);
 
-.updatespage {
-    margin-top: 2%;
-    color: #FFF;
-}
+            color: white;
 
-.message {
-    margin-top: 2%;
-    color: #FFF;
-}
+            border: 2px solid rgba(255, 255, 255, 0.35);
+            border-radius: 5px;
 
-.settingsstuff {
-    color: #FFF;
-}
+            outline: none;
 
-.closesettings_button {
-    position: fixed;
-    top: 0%;
-    right: 50px;
-    color: rgb(255, 32, 32);
-}
+            font-size: 15px;
 
-.title_main {
-    text-align: center;
-    margin-top: 1%;
-}
+            transition: 0.3s;
+        }
 
-.setTitle {
-    color: #FFF;
-    background: none;
-    border: 5px solid  rgba(255, 255, 255, 0.363);
-    margin-top: 1%;
-}
+        .search::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
 
-.setIco {
-    color: #FFF;
-    margin-top: 1%;
-    background: none;
-    border: 5px solid  rgba(255, 255, 255, 0.363);
-}
+        .search:focus {
+            border-color: #74c0ff;
+            box-shadow: 0 0 10px rgba(116, 192, 255, 0.15);
+        }
 
-.resetButton {
-    width: 20%;
-    font-size: large;
-    height: 20%;
-    border: 3px solid rgba(255, 255, 255, 0.842);
-    border-radius: 5px;
-    background: #FFF;
-    margin-top: 5%;
-    cursor: pointer;
-    color: rgb(0, 0, 0);
-}
+        /* Buttons */
+        .buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-.quicktext {
-    margin-top: 2%;
-    color: white;
-    display: none;
-    cursor: none;
-}
+            gap: 8px;
 
-.games {
-    color: #FFF;
-}
+            margin-top: 12px;
+
+            flex-wrap: wrap;
+        }
+
+        .button {
+            position: static;
+
+            background: rgba(0, 0, 0, 0.5);
+
+            color: white;
+
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+
+            padding: 9px 13px;
+
+            font-size: 14px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            border-color: #74c0ff;
+            color: #74c0ff;
+            background: rgba(116, 192, 255, 0.05);
+        }
+
+        .button.active {
+            color: #74c0ff;
+            border-color: #74c0ff;
+        }
+
+        /* Message next to buttons */
+        .message {
+            margin: 0 0 0 5px;
+
+            color: #ff4b4b;
+
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        /* Bottom bar */
+        .bottom {
+            position: fixed;
+
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            height: 45px;
+
+            background: rgba(0, 0, 0, 0.6);
+
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            padding: 0 20px;
+        }
+
+        .textbottom {
+            color: white;
+            font-size: 13px;
+        }
+
+        .linkbottom {
+            color: #74c0ff;
+            font-size: 13px;
+            margin-left: 5px;
+            text-decoration: none;
+        }
+
+        .linkbottom:hover {
+            color: white;
+        }
+
+        /* Game iframe */
+        .gamewindow {
+            position: fixed;
+
+            top: 60px;
+            left: 0;
+
+            width: 100%;
+            height: calc(100% - 60px);
+
+            border: none;
+
+            display: none;
+
+            background: black;
+
+            z-index: 20;
+        }
+
+        /* Mobile */
+        @media (max-width: 700px) {
+            .bar {
+                padding: 0 15px;
+            }
+
+            .nav {
+                gap: 15px;
+            }
+
+            .nav a {
+                font-size: 12px;
+            }
+
+            .container {
+                padding-top: 150px;
+            }
+
+            .title {
+                font-size: 48px;
+            }
+
+            .message {
+                width: 100%;
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Animated background -->
+    <canvas id="particles"></canvas>
+
+    <!-- Navigation -->
+    <header class="bar">
+
+        <a href="#" class="logo">J</a>
+
+        <nav class="nav">
+            <a href="#">Home</a>
+            <a href="#">Apps</a>
+            <a href="#">Arcade</a>
+            <a href="#">Settings</a>
+        </nav>
+
+    </header>
+
+    <!-- Main -->
+    <main class="container">
+
+        <h1 class="title">jace's priv proxy</h1>
+
+        <div class="search-container">
+            <input
+                class="search"
+                type="text"
+                placeholder="Search..."
+                id="search"
+            >
+        </div>
+
+        <div class="buttons">
+
+            <button class="button active">
+                Ultraviolet
+            </button>
+
+            <button class="button">
+                Stomp
+            </button>
+
+            <button class="button">
+                Corrosion
+            </button>
+
+            <button class="button">
+                Rhodium
+            </button>
+
+            <span class="message">
+                PLEASE NOTE THAT YOU NEED TO GO TO SETTINGS TO CHANGE MODE
+            </span>
+
+        </div>
+
+    </main>
+
+    <!-- Bottom -->
+    <footer class="bottom">
+
+        <span class="textbottom">
+            jace's priv proxy
+        </span>
+
+        <a href="#" class="linkbottom">
+            Updates
+        </a>
+
+    </footer>
+
+    <!-- Optional game window -->
+    <iframe class="gamewindow" id="gamewindow"></iframe>
+
+
+    <script>
+        /*
+         * Particle/network background
+         */
+
+        const canvas = document.getElementById("particles");
+        const ctx = canvas.getContext("2d");
+
+        let particles = [];
+        const particleCount = 90;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener("resize", resizeCanvas);
+
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+
+                this.vx = (Math.random() - 0.5) * 0.25;
+                this.vy = (Math.random() - 0.5) * 0.25;
+
+                this.radius = Math.random() * 1.5 + 0.5;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) {
+                    this.vx *= -1;
+                }
+
+                if (this.y < 0 || this.y > canvas.height) {
+                    this.vy *= -1;
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+
+                ctx.arc(
+                    this.x,
+                    this.y,
+                    this.radius,
+                    0,
+                    Math.PI * 2
+                );
+
+                ctx.fillStyle = "rgba(255,255,255,0.75)";
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function connectParticles() {
+
+            for (let a = 0; a < particles.length; a++) {
+
+                for (let b = a + 1; b < particles.length; b++) {
+
+                    const dx = particles[a].x - particles[b].x;
+                    const dy = particles[a].y - particles[b].y;
+
+                    const distance = Math.sqrt(
+                        dx * dx + dy * dy
+                    );
+
+                    if (distance < 150) {
+
+                        const opacity =
+                            1 - distance / 150;
+
+                        ctx.beginPath();
+
+                        ctx.moveTo(
+                            particles[a].x,
+                            particles[a].y
+                        );
+
+                        ctx.lineTo(
+                            particles[b].x,
+                            particles[b].y
+                        );
+
+                        ctx.strokeStyle =
+                            `rgba(255,255,255,${opacity * 0.18})`;
+
+                        ctx.lineWidth = 1;
+
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+
+            ctx.clearRect(
+                0,
+                0,
+                canvas.width,
+                canvas.height
+            );
+
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            connectParticles();
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+
+</body>
+</html>
