@@ -1,0 +1,151 @@
+# Autobahn Outlaws
+
+An open-world crime action game set across **all of Germany**, playable in any modern browser (keyboard & mouse, gamepad or touch).
+Steal cars, race down the Autobahn with no speed limit, fly helicopters over the Alps, take boats
+through Hamburg harbour and try to survive a five-star police pursuit from Kiel to the Zugspitze.
+
+Everything — the map, buildings, vehicles, people, sound effects and the four radio stations — is
+generated procedurally at load time. There are no external asset files, so the game is small
+(about 1 MB including three.js) and works offline once loaded.
+
+## Features
+
+- **Germany as the map**: a scaled-down but recognisable Germany with the real border outline, North Sea and
+  Baltic coasts, the Rhine, Elbe, Danube, Main, Weser, Mosel, Neckar, Spree and Isar, lakes like the Müritz and
+  Chiemsee, the Harz, Black Forest, Bavarian Forest and the Alps with the Zugspitze.
+- **34 cities and towns** (Berlin, Hamburg, München, Köln, Frankfurt, Stuttgart, Dresden, Leipzig, …) connected by
+  **46 Autobahn links** with lane markings, guard rails, bridges, blue direction signs and yellow city-entry signs.
+- **Landmarks**: Brandenburger Tor, Fernsehturm, Reichstag, Kölner Dom, Elbphilharmonie and Hamburg's container
+  harbour, Frankfurt's skyline, Munich's Frauenkirche and stadium, Dresden's Frauenkirche, the Völkerschlachtdenkmal,
+  Nürnberg's Kaiserburg, Schloss Neuschwanstein, the Brocken and the Zugspitze summit cross.
+- **Vehicles**: 18 types — hatchbacks, saloons, estates, a sports car, the "Rennpappe 601", taxis, vans, lorries,
+  city buses, motorbikes, police cars, SEK vans, ambulances, speedboats, helicopters, a sport plane and a cargo plane.
+  Arcade physics with drifting, jumps, crash damage, smoke, fire and explosions.
+- **Flying**: four airfields (near Hamburg, Berlin, München and Köln) with runways, hangars and towers. Take off,
+  bank through the sky and bail out with a **parachute** — which also works for base jumps off towers and mountains.
+- **Weapons**: fists, pistol, SMG, shotgun, assault rifle, sniper rifle with scope, Panzerfaust rocket launcher and
+  grenades, with hit-scan ballistics, headshots, tracers and muzzle flashes. Drive-by shooting from vehicles.
+- **Living world**: pedestrians walking city sidewalks and villages who flee, cower or fight back; AI traffic that
+  follows lanes, turns at junctions, brakes and honks; day/night cycle with lit windows and street lamps; rain.
+- **Police & wanted system**: 1–5 stars, patrol cars, SEK vans and helicopters (with searchlights at night),
+  roadblocks from three stars, cops who try to arrest you at low levels and shoot at higher ones, line-of-sight
+  based evasion, BUSTED and WASTED.
+- **Story**: 16 missions in two acts across Hamburg, Bremen, Hannover, Berlin, Frankfurt, München, Neuschwanstein,
+  the Zugspitze and the skies over Germany — flight lessons, a low-level smuggling flight, an armoured-truck heist,
+  a boat battle on the Elbe and a parachute jump off the Zugspitze. Failed missions can be retried instantly. The
+  objective card and a yellow GPS route always point to the next thing to do.
+- **Side jobs & events**: car export contracts (steal a car from the export list and deliver it to a dock),
+  cash-truck robberies, purse snatchers and armed robberies at petrol stations to stop, taxi fares, vigilante
+  missions in police cars, four Autobahn races with best times, stunt-jump ramps beside the Autobahn and 30 hidden
+  garden gnomes (Gartenzwerge).
+- **Phone** (T): Taxi Blitz fast travel, the mechanic who delivers your cars, a lawyer who makes the police forget
+  you, story contacts, map, garage, businesses, skills and quick save.
+- **Weapon wheel & Fokus**: hold Tab for a radial weapon wheel (time slows down); press X for *Fokus*, a slow-motion
+  special ability that recharges with kills, stunts and driving bonuses.
+- **Skills**: driving, shooting, stamina and flying improve as you play and make you grip, aim, run and fly better.
+- **Garage & tuning**: up to six personal vehicles saved with the game; the Lackiererei now does paint, engine,
+  brakes, armour and turbo upgrades.
+- **Businesses**: ten properties for sale around Germany — from a Späti in Kreuzberg to a Frankfurt exchange
+  office — that pay out every morning at 06:00.
+- **Driving bonuses**: cash for near misses, drifts, big air and flat-out Autobahn runs, with a combo multiplier.
+- **Shops & services**: Waffenladen (gun shop), Autohaus (buy cars and a helicopter), Lackiererei (respray to lose
+  the police), Krankenhaus, Tankstelle (Currywurst & repairs), safehouses for saving.
+- **Modern look**: physically based materials, sky reflections on glass towers, cars and water, soft sun shadows,
+  procedural clouds, bloom, filmic tone mapping, 4× MSAA, street lamps that light the road at night, and a clean
+  glass-style HUD with a gauge speedometer, on-screen waypoint and hit/damage indicators.
+- **Radio**: procedural Berlin techno, Bavarian brass band, classical and synthwave stations.
+- Minimap with GPS routing, full-screen map with waypoints, save/load, settings (quality, draw distance,
+  sensitivity, audio), gamepad support.
+
+## Controls
+
+| Action | Keyboard / mouse | Gamepad |
+| --- | --- | --- |
+| Move / drive | W A S D | Left stick, RT/LT |
+| Look / aim | Mouse | Right stick |
+| Shoot | Left click | RT |
+| Aim | Right click (hold) | LT |
+| Sprint / heli descend | Shift | L3 (sprint), B (heli descend) |
+| Jump / handbrake / heli climb | Space | A |
+| Enter, exit, steal vehicle · bail out of aircraft | F | Y |
+| Interact, start mission, retry, skip dialogue | E | X |
+| Reload | R | B |
+| Weapon wheel (slows time) | Tab (hold) | LB (hold) |
+| Select weapon | 1–7, mouse wheel (0 = fists) | LB tap / RB |
+| Fokus (slow motion) | X | L3 + R3 |
+| Phone (↑ ↓ Enter, Backspace back) | T | D-pad up |
+| Plane: throttle / bank / nose up / nose down | W S / A D / Space / Shift | RT LT / left stick |
+| Open parachute | Space or F | A or Y |
+| Horn / radio / camera | H / Q / C | L3 / D-pad right / R3 |
+| Police siren (police vehicles) | N | D-pad left |
+| Taxi job (taxi) / vigilante (police car) | J | D-pad down |
+| Map | M | Back |
+| Pause | Esc or P | Start |
+
+## Running locally
+
+**Quickest (macOS, Windows, Linux):** install Node.js 18+ from nodejs.org, then in the repository root run
+
+```sh
+npm run game
+```
+
+and open <http://localhost:3000> in Safari or Chrome. No `npm install` is needed. Use another port with
+`PORT=8080 npm run game`.
+
+
+The game uses native ES modules, so it has to be served over HTTP (opening `index.html` straight from disk will
+not work in most browsers). From this folder run any static web server, for example:
+
+```sh
+npx http-server -c-1 .
+# or
+python3 -m http.server 8000
+```
+
+and open the printed address. Inside the Zaluea site it is listed on the Games page.
+
+### One-click launcher with macOS Automator
+
+`tools/start-game.command` starts the game server on port 3000 in the background and opens the game in your
+browser. You can double-click it in Finder, or wrap it in an Automator app:
+
+1. Open **Automator** → **New Document** → choose **Application**.
+2. Search the actions for **Run Shell Script** and drag it into the workflow.
+3. Set **Shell** to `/bin/bash` and replace the text with the path to the script in your copy of the repo, e.g.
+   `"$HOME/Zaluea/tools/start-game.command"` (keep the quotes).
+4. **File → Save**, name it *Autobahn Outlaws* and save it to **Applications**.
+
+Double-click the new app to play. The first time, macOS may ask to let Automator access the folder the repo is
+in — click **OK**. The server keeps running in the background; stop it with `tools/stop-game.command` (you can
+make a second Automator app for it the same way). If Node.js isn't installed, the launcher falls back to the
+Mac's Python 3, and shows an alert if neither is available.
+
+## Publishing
+
+- **itch.io (HTML5)**: run `npm run package:game` in the repository root. It creates
+  `dist/autobahn-outlaws.zip` with `index.html` at the top level. Upload it as an HTML game, tick
+  "This file will be played in the browser", set the viewport to 1280×720 and enable the fullscreen button.
+- **GitHub Pages / any static host**: upload this folder as-is. No build step and no server-side code are needed.
+
+## Technical notes
+
+- Rendering: [three.js](https://threejs.org) r186 (MIT licence, see `lib/THREE_LICENSE.txt`), bundled locally in
+  `lib/three.module.min.js`.
+- World generation takes one to three seconds on a desktop PC. Graphics quality defaults to *Medium* (HDR pipeline
+  with bloom and MSAA, soft shadows, street-lamp lights); *High* adds tree shadows, sharper shadows and a higher
+  resolution; *Low* renders straight to the screen without shadows or antialiasing for older laptops.
+- Saves and settings are stored in the browser's `localStorage`.
+- Source layout: `src/geo.js` (Germany data), `terrain.js`, `roads.js`, `city.js`, `landmarks.js`, `nature.js`
+  (world), `vehicle.js`, `vehicles.js`, `traffic.js`, `character.js`, `peds.js`, `police.js`, `weapons.js`,
+  `player.js` (gameplay, parachute), `missions.js`, `events.js` (side jobs, street crime, driving bonuses),
+  `phone.js`, `wheel.js` (weapon wheel), `skills.js` (skills, Fokus slow motion), `garage.js` (personal vehicles,
+  tuning), `properties.js` (businesses), `stunts.js`, `pickups.js`,
+  `hud.js`, `ui.js`, `touch.js`, `save.js`, `audio.js`, `sky.js` (sky, clouds, sun, environment map),
+  `render.js` (HDR post-processing), `lamps.js` (street-lamp lights), `effects.js`, `main.js`.
+- Touch devices get an on-screen joystick, drag-to-look and action buttons automatically.
+
+## Legal
+
+All characters, companies, vehicles and brands in the game are fictional. Real places are used only as
+locations. This project is not affiliated with or endorsed by Rockstar Games or any other publisher.
